@@ -34,10 +34,10 @@
             );
           }),
           (t.prototype.quote = function (e) {
-            return "> " + this.escapeString(this.collapseString(e));
+            return "> " + this.escapeString(this.collapseString(e)) + "\n\n";
           }),
           (t.prototype.quoteLink = function (e, t, r) {
-            return this.quote(e) + " - " + this.link(t, r);
+            return this.quote(e) + "- " + this.link(t, r);
           }),
           (e.exports = t);
       },

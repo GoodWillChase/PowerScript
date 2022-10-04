@@ -1,0 +1,12 @@
+# git
+
+global_vars:
+  - name: clip
+    type: clipboard
+
+matches:
+  - trigger: ';gcl'
+    replace: 'git clone {{clip}} '
+
+  - trigger: ';gs'
+    replace: 'git status '

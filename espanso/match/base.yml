@@ -47,6 +47,61 @@ matches:
 
   # And much more! For more information, visit the docs: https://espanso.org/docs/
 
-  # 标点
-  - trigger: ':"'
-    replace: '「$|$」'
+  # 标点. 中文引号已在 Rime 中实现. 此处暂时注释.
+  # - trigger: ':"'
+  #   replace: '「$|$」'
+
+  - trigger: ";details"
+    replace: "<details><summary>View</summary><p>\n\n</p></details>"
+
+  # UNIX shebangs
+  - trigger: ":#!sh"
+    replace: "#!/usr/bin/env sh"
+  - trigger: ":#!bash"
+    replace: "#!/usr/bin/env bash"
+  - trigger: ":#!pwsh"
+    replace: "#!/usr/bin/env pwsh"
+  - trigger: ":#!python"
+    replace: "#!/usr/bin/env python3"
+  - trigger: ":#!expect"
+    replace: "#!/usr/bin/expect -f"
+
+  - triggers: [':(c)', ':copyright:']
+    replace: '©'
+
+  # ASCII Arrows
+  - triggers: [":-->", ":rarrow"]
+    replace: "→"
+  - triggers: [":<--", ":larrow"]
+    replace: "←"
+  - triggers: [":uarrow"]
+    replace: "↑"
+  - triggers: [":darrow"]
+    replace: "↓"
+
+
+  # Inserts a markdown code block
+  - trigger: :md-code
+    replace: "```\n$|$\n```"
+
+  # Inserts markdown collapsable section
+  - trigger: :md-collapse
+    replace: "\n<details>\n\t<summary>$|$</summary>\n\t<p></p>\n</details>"
+
+  # Outputs markdown link, with clipboard contents as the URL
+  - trigger: ":md-link"
+    replace: "[$|$]({{clip}})"
+
+  # Creates a HTML anchor element, with clipboard contents as href
+  - trigger: ":html-link"
+    replace: "<a href=\"{{clip}}\" />$|$</a>"
+
+  # Inserts console.log statement
+  - trigger: ":con"
+    replace: "console.log($|$);"
+
+  # Inserts common HTML elements
+  - trigger: :hr
+    replace: '<hr />'
+  - trigger: :br
+    replace: '<br />'

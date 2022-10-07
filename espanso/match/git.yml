@@ -6,7 +6,11 @@ global_vars:
 
 matches:
   - trigger: ';gcl'
-    replace: 'git clone {{clip}} '
+    replace: 'git clone {{clip}}'
 
   - trigger: ';gs'
     replace: 'git status '
+
+  # Outputs git commit command, with cursor in the message block
+  - trigger: :commit
+    replace: git commit -m "$|$"

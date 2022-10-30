@@ -105,3 +105,6 @@ matches:
     replace: '<hr />'
   - trigger: :br
     replace: '<br />'
+
+  - trigger: ;cdrime
+    replace: 'cd /Users/zhang/Library/Rime'
